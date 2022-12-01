@@ -113,7 +113,7 @@ class MSSet {
       try{
          
           $('#clashviewSpinner').css({ display: "block" });
-          $('#forgeSpinner').css({ display: "block" });
+          $('#APSSpinner').css({ display: "block" });
 
           const jobId = await this.prepareClashData(mc_container_id,ms_id,ms_v_id,toRefresh) 
           let status = 'running'
@@ -138,7 +138,7 @@ class MSSet {
           global_Utility.successMessage('Prepare ClashData Succeeded!')  
 
           $('#clashviewSpinner').css({ display: "none" });
-          $('#forgeSpinner').css({ display: "none" });
+          $('#APSSpinner').css({ display: "none" });
           return true
       }
       catch(ex){
@@ -146,7 +146,7 @@ class MSSet {
           global_Utility.failMessage('Prepare ClashData Failed!')  
 
           $('#clashviewSpinner').css({ display: "none" });
-          $('#forgeSpinner').css({ display: "none" });
+          $('#APSSpinner').css({ display: "none" });
           return false
       } 
    }

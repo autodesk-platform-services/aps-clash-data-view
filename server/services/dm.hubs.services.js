@@ -20,7 +20,7 @@
 'use strict';    
 const fetch = require('node-fetch');
 
-const forgeSDK = require('forge-apis');
+const APSSDK = require('forge-apis');
 const config = require('../config'); 
 
 module.exports = { 
@@ -34,7 +34,7 @@ async function getHubs(input){
 
   return new Promise((resolve, reject) => { 
 
-    var hubsAPI = new forgeSDK.HubsApi(); 
+    var hubsAPI = new APSSDK.HubsApi(); 
     hubsAPI.getHubs({}, input.oAuth,input.credentials)
         .then((response)=> { 
           console.log('get hubs succeeded!'); 

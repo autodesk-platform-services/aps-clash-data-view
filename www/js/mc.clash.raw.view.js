@@ -9,7 +9,7 @@ class ClashRawView {
 
     try {
         $('#clashviewSpinner').css({ display: "block" })
-        $('#forgeSpinner').css({ display: "block" })
+        $('#APSSpinner').css({ display: "block" })
         await this.getRawData(mc_container_id, ms_id, ms_v_id)
 
         $("#clashRawTable tbody").empty()
@@ -42,7 +42,7 @@ class ClashRawView {
       global_Utility.successMessage('Produce ClashRawTable Succeeded!')  
 
       $('#clashviewSpinner').css({ display: "none" })
-      $('#forgeSpinner').css({ display: "none" })
+      $('#APSSpinner').css({ display: "none" })
 
       return true
     }
@@ -51,7 +51,7 @@ class ClashRawView {
       global_Utility.failMessage('Produce ClashRawTable Failed!')  
 
       $('#clashviewSpinner').css({ display: "none" })
-      $('#forgeSpinner').css({ display: "none" })
+      $('#APSSpinner').css({ display: "none" })
       return false
     }
   }

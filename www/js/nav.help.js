@@ -60,7 +60,7 @@ class NavHelp {
   
           if(helpName == 'configHelp'){
             $.getJSON("/oauth/clientid", function (res) {
-              $("#ClientID").val(res.ForgeClientId);
+              $("#ClientID").val(res.APSClientId);
               $('#'+helpName+'Dialog').modal('show');  
             }); 
             $("#provisionAccountSave").click(function () {

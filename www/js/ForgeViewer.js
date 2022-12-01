@@ -1,11 +1,11 @@
-class ForgeViewer {
+class APSViewer {
 
     constructor() {
         this._viewer = null
         this._clashDocToModel = {}
     }
 
-    fetchForgeToken(callback) {
+    fetchAPSToken(callback) {
         
         $.ajax({
           url: '/oauth/publictoken',
@@ -22,7 +22,7 @@ class ForgeViewer {
         this._viewer.tearDown()
         this._viewer.finish()
         this._viewer = null
-        $("#forgeViewer").empty();
+        $("#APSViewer").empty();
         this._clashDocToModel = {}
      } 
   
@@ -31,14 +31,14 @@ class ForgeViewer {
   
       const options = {
         env: 'AutodeskProduction',
-        getAccessToken: this.fetchForgeToken
+        getAccessToken: this.fetchAPSToken
        };
   
       var _this = this
       Autodesk.Viewing.Initializer( options, () => {
   
         //get the viewer div
-        const viewerDiv = document.getElementById( 'forgeViewer' );
+        const viewerDiv = document.getElementById( 'APSViewer' );
   
         var config3d = {  
           //'extensions': ['ToolbarExtension']
@@ -57,7 +57,7 @@ class ForgeViewer {
 
     isolateClash(clashes){ 
 
-      if(global_msSet._docsMap.length> Object.keys(global_forgeViewer._clashDocToModel).length){
+      if(global_msSet._docsMap.length> Object.keys(global_APSViewer._clashDocToModel).length){
         alert('not all models are loaded in viewer. try after a moment!')
         return
       } 
@@ -80,8 +80,8 @@ class ForgeViewer {
             var Rvid = clashes[id].Rvid
     
              
-            var Lmodel = global_forgeViewer._clashDocToModel[Ldid].model
-            var Rmodel = global_forgeViewer._clashDocToModel[Rdid].model
+            var Lmodel = global_APSViewer._clashDocToModel[Ldid].model
+            var Rmodel = global_APSViewer._clashDocToModel[Rdid].model
     
             var LFragsList = Lmodel.getFragmentList()
             var RFragsList = Rmodel.getFragmentList() 
@@ -118,7 +118,7 @@ class ForgeViewer {
     
       let toIsolate = []
       for(let clashDocId in isolate_pair){ 
-        let thismodel =  global_forgeViewer._clashDocToModel[clashDocId].model
+        let thismodel =  global_APSViewer._clashDocToModel[clashDocId].model
         toIsolate.push({model:thismodel,ids:isolate_pair[clashDocId]})
       } 
       _viewer.impl.visibilityManager.aggregateIsolate(toIsolate) 

@@ -21,7 +21,7 @@ class oAuth{
   constructor() {  
   }
 
-  async forgeSignIn() {
+  async APSSignIn() {
        $.ajax({
         url: '/oauth/url',
         success: function (rootUrl) {
@@ -30,7 +30,7 @@ class oAuth{
       }); 
   }
 
-  async forgeLogoff() {
+  async APSLogoff() {
        $.ajax({
         url: '/oauth/logoff',
         success: function (oauthUrl) {
@@ -39,19 +39,19 @@ class oAuth{
       }) 
   } 
 
-   getForgeToken() {
+   getAPSToken() {
       var token = '';
       $.ajax({
         url: '/oauth/publictoken',
         success: function (res) {
           token = res;
         },
-        async: false // this request must be synchronous for the Forge Viewer
+        async: false // this request must be synchronous for the APS Viewer
       });
       return token; 
   }
 
-  async getForgeUserProfile() {
+  async getAPSUserProfile() {
     return new Promise((resolve, reject) => {   
          jQuery.ajax({
           url: '/dm/user/profile',

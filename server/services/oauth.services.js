@@ -19,25 +19,25 @@
 
 'use strict';  
  
-// forge oAuth package
-var forgeSDK = require('forge-apis'); 
+// APS oAuth package
+var APSSDK = require('forge-apis'); 
 var config = require('../config');
 
 function getAdminTwoLeggedToken() {
 
   return new Promise(function(resolve,reject) {
 
-    var forgeOAuth = new forgeSDK.AuthClientTwoLegged(
+    var APSOAuth = new APSSDK.AuthClientTwoLegged(
       config.credentials.client_id,
       config.credentials.client_secret,
       config.scope.scopeInternal);
 
-    forgeOAuth.authenticate()
+    APSOAuth.authenticate()
       .then(function (twoleggedcredentials) {
 
         console.log('get admin credentials succeeded!');  
  
-        resolve({oAuth:forgeOAuth,
+        resolve({oAuth:APSOAuth,
                 credentials:twoleggedcredentials});
       })
       .catch(function (error) {

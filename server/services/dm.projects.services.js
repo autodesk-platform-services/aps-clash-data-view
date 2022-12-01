@@ -19,13 +19,13 @@
 
 'use strict';     
 
-var forgeSDK = require('forge-apis');
+var APSSDK = require('forge-apis');
  
 async function getProjects(input) {
 
   return new Promise((resolve, reject) => { 
 
-    var projectsAPI = new forgeSDK.ProjectsApi();;
+    var projectsAPI = new APSSDK.ProjectsApi();;
 
       projectsAPI.getHubProjects(input.hubId, {},
         input.oAuth,input.credentials)
@@ -58,7 +58,7 @@ async function getProject(input) {
 
   return new Promise((resolve, reject) => { 
 
-    var projects = new forgeSDK.ProjectsApi(); 
+    var projects = new APSSDK.ProjectsApi(); 
     projects.getProject(input.hubId, input.projectId,
                         input.oAuth,input.credentials)
       .then(function (response) {
