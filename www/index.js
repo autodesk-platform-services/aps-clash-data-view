@@ -2,28 +2,28 @@ const global_oAuth = new oAuth()
 const global_dmProjects = new DMProjects()  
 const global_msSet = new MSSet()
 const global_clashRawView= new ClashRawView()
-const global_forgeViewer= new ForgeViewer()
+const global_APSViewer= new APSViewer()
 const global_navHelp= new NavHelp()
 const global_Utility = new Utility()
 
 $(document).ready(function () {
 
  
-  $('#iconlogin').click(global_oAuth.forgeSignIn);
+  $('#iconlogin').click(global_oAuth.APSSignIn);
 
-  var currentToken = global_oAuth.getForgeToken(); 
+  var currentToken = global_oAuth.getAPSToken(); 
 
   if (currentToken === '')
-    $('#signInButton').click(global_oAuth.forgeSignIn); 
+    $('#signInButton').click(global_oAuth.APSSignIn); 
   else {
     (async()=>{
-      let profile = await global_oAuth.getForgeUserProfile() 
+      let profile = await global_oAuth.getAPSUserProfile() 
       
       $('#signInProfileImage').removeClass();  
       $('#signInProfileImage').html('<img src="' + profile.picture + '" height="30"/>')
       $('#signInButtonText').text(profile.name);
       $('#signInButtonText').attr('title', 'Click to Sign Out');
-      $('#signInButton').click(global_oAuth.forgeLogoff); 
+      $('#signInButton').click(global_oAuth.APSLogoff); 
     
       let r = await global_dmProjects.refreshBIMHubs()
       if(!r)
@@ -83,7 +83,7 @@ function delegateModelsetSelection(){
         if(r)
            r = await global_clashRawView.produceClashRawTable(mc_containter_id,ms_id,ms_v_id)
         if(r)
-          global_forgeViewer.launchViewer(global_msSet._docsMap)
+          global_APSViewer.launchViewer(global_msSet._docsMap)
  
       })(mc_containter_id,ms_id,ms_v_id)
   })
@@ -100,7 +100,7 @@ function delegateRawTableSelection(){
     const Rvid = parseInt($(this).find('td')[5].innerText)
 
     //isolate the clashed objects
-    global_forgeViewer.isolateClash([
+    global_APSViewer.isolateClash([
           {Ldid:Ldid,Rdid:Rdid,Lvid:Lvid,Rvid:Rvid}
       ])
   })  
@@ -127,7 +127,7 @@ function delegateRefreshClash(){
       if(r)
          r = await global_clashRawView.produceClashRawTable(mc_containter_id,ms_id,ms_v_id,true)
       if(r)
-         global_forgeViewer.launchViewer(global_msSet._docsMap)
+         global_APSViewer.launchViewer(global_msSet._docsMap)
 
     })(mc_containter_id,ms_id,ms_v_id)  
     

@@ -17,17 +17,13 @@
 
 
 ## Description
-This repository demonstrates basic viewing of clash raw data by Model Coordination API. It lists all clash instances data, and allows the user to click one instance to highlight within Forge Viewer.
+This repository demonstrates basic viewing of clash raw data by Model Coordination API. It lists all clash instances data, and allows the user to click one instance to highlight within APS Viewer. Model Coordination API is compatible with ACC and BIM360.
 
 > Note: The logic of this sample works for ModelSet which are created after Oct 1st,2019
 
 ## Thumbnail
 
 ![thumbnail](/thumbnail.png)
-
-## Live version
-
-[bim360-clash-basic-view.herokuapp.com](https://bim360-clash-basic-view.herokuapp.com)
 
 > To use this sample with your BIM 360 you need to "Enable Custom Integrations". At the app top-right, click **Config** to get detailed steps.
 
@@ -39,8 +35,8 @@ To work with the sample, firstly upload some source models to BIM 360 folder, th
 
 1. After logging in, on top left of navigation panel, select one hub, then select one project.
 2. After selecting one project, the active modelsets in this activeproject will be listed.
-3. Click one modelset, all clash instances will be displayed. All documents of this modelset will also be loaded in Forge viewer
-4. Select one clash, the corresponding clash will be highlighted in Forge viewer.
+3. Click one modelset, all clash instances will be displayed. All documents of this modelset will also be loaded in APS viewer
+4. Select one clash, the corresponding clash will be highlighted in APS viewer.
 
 
 ## Technology Architecture
@@ -66,8 +62,8 @@ The mapping of clash instances data and the clash table in the sample:
 
 ## Prerequisites
 
-1. **BIM 360 Account**: must be an Account Admin to add the app custom integration, or be invited by an admin of a BIM 360 account. [Learn about provisioning](https://forge.autodesk.com/blog/bim-360-docs-provisioning-forge-apps).
-2. **Forge Account**: Learn how to create a Forge Account, activate subscription and create an app at [this tutorial](http://learnforge.autodesk.io/#/account/). Get _Forge client id_, _Forge client secret_ and _Forge callback url_ and input them to [config.js](./server/config.js)
+1. **BIM 360 Account**: must be an Account Admin to add the app custom integration, or be invited by an admin of a BIM 360 account. [Learn about provisioning](https://APS.autodesk.com/blog/bim-360-docs-provisioning-forge-apps).
+2. **APS Account**: Learn how to create a APS Account, activate subscription and create an app at [this tutorial](http://aps.autodesk.com/tutorials/#/account/). Get _APS client id_, _APS client secret_ and _APS callback url_ and input them to [config.js](./server/config.js)
 3. Create some [modelsets of Model Coordination](https://knowledge.autodesk.com/support/bim-360/learn-explore/caas/CloudHelp/cloudhelp/ENU/BIM360D-Model-Coordination/files/GUID-38CC3A1C-92FF-4682-847F-9CFAFCC4CCCE-html.html) in BIM 360.
 4. **Node.js**: basic knowledge with [**Node.js**](https://nodejs.org/en/).
 5. **JavaScript** basic knowledge with **jQuery** and **Bootstrap**
@@ -76,31 +72,31 @@ The mapping of clash instances data and the clash table in the sample:
 
 Clone this project or download it. It's recommended to install [GitHub desktop](https://desktop.github.com/). To clone it via command line, use the following (**Terminal** on MacOSX/Linux, **Git Shell** on Windows):
 
-    git clone https://github.com/Autodesk-Forge/forge-bim360-clashview
+    git clone https://github.com/autodesk-platform-services/aps-clash-data-view
 
 Open the project folder in **Visual Studio Code**. Install the required packages, set the environment variables with your client ID & secret and finally start it. Via the command line, navigate to the folder where this repository was cloned and use the following:
 
 Mac OSX/Linux (Terminal)
 
     npm install
-    export FORGE_CLIENT_ID=<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>
-    export FORGE_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
-    export FORGE_CALLBACK_URL=<<YOUR CALLBACK URL>>
+    export APS_CLIENT_ID=<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>
+    export APS_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
+    export APS_CALLBACK_URL=<<YOUR CALLBACK URL>>
     npm start
 
 Windows (use **Node.js command line** from Start menu)
 
     npm install
-    set FORGE_CLIENT_ID=<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>
-    set FORGE_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
-    set FORGE_CALLBACK_URL=<<YOUR CALLBACK URL>>
+    set APS_CLIENT_ID=<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>
+    set APS_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
+    set APS_CALLBACK_URL=<<YOUR CALLBACK URL>>
     npm start
 
 Open the browser: [http://localhost:3000](http://localhost:3000).
 
 ## Deployment
 
-To deploy this application to Heroku, the **Callback URL** for Forge must use your `.herokuapp.com` address. After clicking on the button below, at the Heroku Create New App page, set your Client ID, Secret and Callback URL for Forge.
+To deploy this application to Heroku, the **Callback URL** for APS must use your `.herokuapp.com` address. After clicking on the button below, at the Heroku Create New App page, set your Client ID, Secret and Callback URL for Forge.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
@@ -114,11 +110,11 @@ Watch [this video](https://www.youtube.com/watch?v=Oqa9O20Gj0c) on how deploy sa
 
 ## Tutorials
 - [Model Coordination API](https://forge.autodesk.com/en/docs/bim360/v1/tutorials/model-coordination)
-- [View BIM 360 Models](http://learnforge.autodesk.io/#/tutorials/viewhubmodels)
+- [View BIM 360 Models](http://aps.autodesk.com/tutorials/#/tutorials/viewhubmodels)
 
 ## Blogs:
 
-- [Forge Blog](https://forge.autodesk.com/categories/bim-360-api)
+- [APS Blog](https://forge.autodesk.com/categories/bim-360-api)
 - [Field of View](https://fieldofviewblog.wordpress.com/), a BIM focused blog
 
 
@@ -131,9 +127,9 @@ Watch [this video](https://www.youtube.com/watch?v=Oqa9O20Gj0c) on how deploy sa
 
 ## Troubleshooting
 
-- **Cannot see my BIM 360 projects**: Make sure to provision the Forge App Client ID within the BIM 360 Account, [learn more here](https://forge.autodesk.com/blog/bim-360-docs-provisioning-forge-apps). This requires the Account Admin permission.
+- **Cannot see my BIM 360 projects**: Make sure to provision the APS App Client ID within the BIM 360 Account, [learn more here](https://forge.autodesk.com/blog/bim-360-docs-provisioning-forge-apps). This requires the Account Admin permission.
 
-- The code of highlighting objects within Forge Viewer requires the corresponding documents of one clash instance have been loaded. If not, the highlighting will not work, try again when the loading is completed.
+- The code of highlighting objects within APS Viewer requires the corresponding documents of one clash instance have been loaded. If not, the highlighting will not work, try again when the loading is completed.
 
 ## License
 
@@ -141,4 +137,4 @@ This sample is licensed under the terms of the [MIT License](http://opensource.o
 
 ## Written by
 
-Xiaodong Liang [@coldwood](https://twitter.com/coldwood), [Forge Partner Development](http://forge.autodesk.com)
+Xiaodong Liang [@coldwood](https://twitter.com/coldwood), Develope Advocacy and Support, Autodesk

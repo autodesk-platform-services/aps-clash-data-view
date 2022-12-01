@@ -1,6 +1,7 @@
 /////////////////////////////////////////////////////////////////////
-// Copyright (c) Autodesk, Inc. All rights reserved
-// Written by Forge Partner Development
+// Copyright 2022 Autodesk Inc
+// Written by Develope Advocacy and Support
+//
 //
 // Permission to use, copy, modify, and distribute this software in
 // object code form for any purpose and without fee is hereby granted,
@@ -24,20 +25,20 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 
-// forge oAuth package
-var forgeSDK = require('forge-apis');
+// APS oAuth package
+var APSSDK = require('forge-apis');
 
 var config = require('../config');
 var UserSession = require('../services/userSession'); 
 
 router.get('/oauth/clientid', function (req, res) {
   res.json({
-    'ForgeClientId': config.credentials.client_id
+    'APSClientId': config.credentials.client_id
   });
 });
 
 // this end point will logoff the user by destroying the session
-// as of now there is no Forge endpoint to invalidate tokens
+// as of now there is no APS endpoint to invalidate tokens
 router.get('/oauth/logoff', function (req, res) {
   req.session.destroy();
   res.end('/');
@@ -56,7 +57,7 @@ router.get('/oauth/publictoken', function (req, res) {
   res.end(userSession.getUserClientCredentials().access_token);
 });
 
-// return the forge authenticate url
+// return the APS authenticate url
 router.get('/oauth/url', function (req, res) {
   // redirect the user to this page
   var url =
@@ -69,13 +70,13 @@ router.get('/oauth/url', function (req, res) {
 });
 
 // wait for Autodesk callback (oAuth callback)
-router.get('/api/forge/callback/oauth', function (req, res) {
+router.get('/api/APS/callback/oauth', function (req, res) {
 
   var code = req.query.code;
   var userSession = new UserSession(req.session);
 
   // first get a 3-legged token of the user
-  var req = new forgeSDK.AuthClientThreeLegged(
+  var req = new APSSDK.AuthClientThreeLegged(
      config.credentials.client_id,
      config.credentials.client_secret, 
      config.callbackURL, config.scopeInternal);
@@ -89,7 +90,7 @@ router.get('/api/forge/callback/oauth', function (req, res) {
  
       // then refresh and get a token for viewer
       // that we can send to the client
-      var req2 = new forgeSDK.AuthClientThreeLegged(
+      var req2 = new APSSDK.AuthClientThreeLegged(
         config.credentials.client_id, 
         config.credentials.client_secret,
         config.callbackURL, 
