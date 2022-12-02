@@ -1,6 +1,6 @@
 {
   "name": "Model Coordination API Sample - View of Clash data",
-  "description": "This repository demonstrates basic viewing of clash raw data by Model Coordination API. It lists all clash instances data, and allows the user to click one instance to highlight within Forge Viewer.",
+  "description": "This repository demonstrates basic viewing of clash raw data by Model Coordination API. It lists all clash instances data, and allows the user to click one instance to highlight within APS Viewer.",
   "repository": "https://github.com/autodesk-platform-services/aps-clash-data-view",
   "logo": "https://avatars0.githubusercontent.com/u/8017462?v=3&s=200",
   "keywords": [
