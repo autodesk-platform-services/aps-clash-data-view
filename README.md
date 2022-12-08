@@ -23,7 +23,7 @@ This repository demonstrates basic viewing of clash raw data by Model Coordinati
 
 ## Thumbnail
 
-![thumbnail](/thumbnail.png)
+![thumbnail](/help/main.png)
 
 > To use this sample with your BIM 360 you need to "Enable Custom Integrations". At the app top-right, click **Config** to get detailed steps.
 
