@@ -23,7 +23,7 @@
     "crypto": "^1.0.1",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
-    "forge-apis": "^0.4.5",
+    "forge-apis": "^0.9.8",
     "fs": "0.0.1-security",
     "jspdf": "^2.5.1",
     "mkdirp": "^0.5.1",
