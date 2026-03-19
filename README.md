@@ -61,7 +61,7 @@ The mapping of clash instances data and the clash table in the sample:
 
 ## Prerequisites
 
-1. **BIM 360/Autodesk Forma Account**: must be an Hub Admin to add the app custom integration, or be invited by an admin of a BIM 360 account. [Learn about provisioning](https://APS.autodesk.com/blog/bim-360-docs-provisioning-forge-apps).
+1. **BIM 360/Autodesk Forma Account**: must be an Account Admin to add the app custom integration, or be invited by an admin of a BIM 360 account. [Learn about provisioning](https://APS.autodesk.com/blog/bim-360-docs-provisioning-forge-apps).
 2. **APS Account**: Learn how to create a APS Account, activate subscription and create an app at [this tutorial](http://aps.autodesk.com/tutorials/#/account/). Get _APS client id_, _APS client secret_ and _APS callback url_ and input them to [config.js](./server/config.js)
 3. Create some [modelsets of Model Coordination](https://knowledge.autodesk.com/support/bim-360/learn-explore/caas/CloudHelp/cloudhelp/ENU/BIM360D-Model-Coordination/files/GUID-38CC3A1C-92FF-4682-847F-9CFAFCC4CCCE-html.html) in BIM 360.
 4. **Node.js**: basic knowledge with [**Node.js**](https://nodejs.org/en/).
