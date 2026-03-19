@@ -17,7 +17,7 @@
 
 
 ## Description
-This repository demonstrates basic viewing of clash raw data by Model Coordination API. It lists all clash instances data, and allows the user to click one instance to highlight within APS Viewer. Model Coordination API is compatible with ACC and BIM360.
+This repository demonstrates basic viewing of clash raw data by Model Coordination API. It lists all clash instances data, and allows the user to click one instance to highlight within APS Viewer. Model Coordination API is compatible with Autodesk Forma and BIM360.
 
 > Note: The logic of this sample works for ModelSet which are created after Oct 1st,2019
 
@@ -61,7 +61,7 @@ The mapping of clash instances data and the clash table in the sample:
 
 ## Prerequisites
 
-1. **BIM 360 Account**: must be an Account Admin to add the app custom integration, or be invited by an admin of a BIM 360 account. [Learn about provisioning](https://APS.autodesk.com/blog/bim-360-docs-provisioning-forge-apps).
+1. **BIM 360/Autodesk Forma Account**: must be an Hub Admin to add the app custom integration, or be invited by an admin of a BIM 360 account. [Learn about provisioning](https://APS.autodesk.com/blog/bim-360-docs-provisioning-forge-apps).
 2. **APS Account**: Learn how to create a APS Account, activate subscription and create an app at [this tutorial](http://aps.autodesk.com/tutorials/#/account/). Get _APS client id_, _APS client secret_ and _APS callback url_ and input them to [config.js](./server/config.js)
 3. Create some [modelsets of Model Coordination](https://knowledge.autodesk.com/support/bim-360/learn-explore/caas/CloudHelp/cloudhelp/ENU/BIM360D-Model-Coordination/files/GUID-38CC3A1C-92FF-4682-847F-9CFAFCC4CCCE-html.html) in BIM 360.
 4. **Node.js**: basic knowledge with [**Node.js**](https://nodejs.org/en/).
@@ -126,7 +126,7 @@ Watch [this video](https://www.youtube.com/watch?v=Oqa9O20Gj0c) on how deploy sa
 
 ## Troubleshooting
 
-- **Cannot see my BIM 360 projects**: Make sure to provision the APS App Client ID within the BIM 360 Account, [learn more here](https://forge.autodesk.com/blog/bim-360-docs-provisioning-forge-apps). This requires the Account Admin permission.
+- **Cannot see my BIM 360/Forma projects**: Make sure to provision the APS App Client ID within the BIM 360 Account, [learn more here](https://forge.autodesk.com/blog/bim-360-docs-provisioning-forge-apps). This requires the Account Admin permission.
 
 - The code of highlighting objects within APS Viewer requires the corresponding documents of one clash instance have been loaded. If not, the highlighting will not work, try again when the loading is completed.
 
